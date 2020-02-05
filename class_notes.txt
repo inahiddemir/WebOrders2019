@@ -1,0 +1,22 @@
+office hours time-line: from 11 am to 4 pm
+project URL: https://github.com/CybertekSchool/summer-online2019-web-orders
+How to rerun failed tests?
+    answer: There are many ways, and the easiest one is to add following parameter into maven-surefire plugin configuration:
+    <rerunFailingTestsCount>1</rerunFailingTestsCount>
+    or, with cucumber, we can generate txt file with failed test scenarios, and then run those scenarios in dedicated test runner class that calls FailedRunner.
+Build periodically:
+H 5 * * 1-5 | Run smoke test from Monday to Friday, every day around 5 am
+H 23 25 12 * | Run on December 25 at 11 PM
+H(0-59) * * * * | Run every minute
+Slack integration:
+    -install slack plugin
+    -go to jenkins -> manage jenkins -> configure system
+    -scroll to slack configuration
+
+    workspace: cybertek-summer2019us
+    channel: your slack id or put just jenkins
+    click to add credentials:
+        choose secret text as type of credentials.
+        token will be generated from slack: y9Lk1pOnJsI84odtYvQJZvor
+        id: slack-token
+        name: slack-token

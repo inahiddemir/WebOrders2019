@@ -12,14 +12,14 @@ node {
               parallel chrome: {
               				    sh label: '', script: 'mvn clean test -Dbrowser="chrome"'
               				}, firefox: {
-              				    sh label: '', script: 'mvn clean test -Dbrowser="firefox"'
+              				    sh label: '', script: 'mvn clean test -Dbrowser="chrome_headless"'
               				}
 
             } else {
                parallel chrome: {
                				        bat label: '', script: 'mvn clean test -Dbrowser="chrome"'
                				    }, firefox: {
-               				        bat label: '', script: 'mvn clean test -Dbrowser="firefox"'
+               				        bat label: '', script: 'mvn clean test -Dbrowser="chrome_headless"'
                				    }
 
             }
