@@ -9,9 +9,19 @@ node {
  // build
         stage("Running tests") {
             if (isUnix()) {
-                sh label: '', script: 'mvn clean test'
+              parallel chrome: {
+              				    sh label: '', script: 'mvn clean test -Dbrowser="chrome"'
+              				}, firefox: {
+              				    sh label: '', script: 'mvn clean test -Dbrowser="remote_firefox"'
+              				}
+
             } else {
-                bat label: '', script: 'mvn clean test'
+               parallel chrome: {
+               				        bat label: '', script: 'mvn clean test -Dbrowser="chrome"'
+               				    }, firefox: {
+               				        bat label: '', script: 'mvn clean test -Dbrowser="remote_firefox"'
+               				    }
+
             }
         }
 
